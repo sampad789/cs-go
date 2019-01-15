@@ -1,0 +1,42 @@
+@font-face {
+    font-family: 'cs';
+    src:url('./fonts/cs_regular.ttf')  format('truetype')
+  }
+.container{
+    position: fixed;
+   
+}
+img.bg {
+    /* Set rules to fill background */
+    min-height: 100%;
+    min-width: 1024px;
+  
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+  
+    /* Set up positioning */
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+.text-block {
+    font-family:'cs';
+    font-size: 35px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: transpaernt;
+    color: yellow;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  
+  
+  @media screen and (max-width: 1024px) { /* Specific to this particular image */
+    img.bg {
+      left: 50%;
+      margin-left: -512px;   /* 50% */
+    }
+  }
