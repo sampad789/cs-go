@@ -1,0 +1,31 @@
+nav.menu{ margin: 25px }
+
+nav.menu ul{
+  display: inline-block;
+  list-style: none;
+  padding-left: 0;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 99999;
+}
+
+nav.menu ul.links li{
+  display: inline-block;
+  margin: 0 15px;
+}
+
+nav.menu ul.links li a {
+  position: relative;;
+  display:inline-block;
+
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-decoration:none;
+  color:#FDBB07;
+
+  padding:0px 5px;
+
+  transition:all 0.5s;
+}
