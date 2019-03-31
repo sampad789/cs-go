@@ -20,7 +20,7 @@ class App extends Component {
 
     return (
       <div className="App">
-     <News />
+<p>boom sakala la</p>
       </div>
     );
   }

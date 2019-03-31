@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'cs';
+    src:url('../Home/fonts/cs_regular.ttf')  format('truetype')
+  }
+ .card-align{
+  margin: 70px  30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+ }
