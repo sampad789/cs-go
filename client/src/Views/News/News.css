@@ -1,11 +1,29 @@
 @font-face {
-    font-family: 'cs';
-    src:url('../Home/fonts/cs_regular.ttf')  format('truetype')
-  }
- .card-align{
-  margin: 70px  30px;
+  font-family: "cs";
+  src: url("../Home/fonts/cs_regular.ttf") format("truetype");
+}
+.card-align {
+  margin: 70px 30px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
- }
+}
+img.bg {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -3;
+
+  /* Reduce brightness */
+  filter: brightness(50%);
+}

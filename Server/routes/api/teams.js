@@ -12,11 +12,4 @@ router.get("/:id(*)", (req, res) => {
     .catch(err => console.log(err));
 });
 
-/*
-router.get('/:matchId(*)', (req, res) => {
-    const {matchId} = req.params;
-    HLTV.getMatches(matchId, (stats) => res.json(stats));
-  });
-  */
-
 module.exports = router;

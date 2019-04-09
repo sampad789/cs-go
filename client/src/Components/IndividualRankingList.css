@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css?family=Iceberg");
+
+.ranking-individual {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-family: "Iceberg", cursive;
+}
+.float {
+  float: right;
+  padding-right: 1rem;
+}
+.player-details {
+  padding-left: 3rem;
+  padding-top: 1rem;
+}

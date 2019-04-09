@@ -3,7 +3,8 @@ import { TabContent, TabPane, Nav, NavItem, NavLink } from "reactstrap";
 import classnames from "classnames";
 import TeamRankingList from "../../Components/TeamRankingList";
 import "./Rankings.css";
-
+import IndividualRankingList from "../../Components/IndividualRankingList";
+import rankingBackground from "../../img/rankings.jpg";
 export default class Rankings extends Component {
   constructor(props) {
     super(props);
@@ -25,7 +26,7 @@ export default class Rankings extends Component {
       .then(response => response.json())
       .then(responseData => {
         this.setState({ teamRankingData: responseData });
-        console.log(this.state.teamRankingData);
+        //   console.log(this.state.teamRankingData);
       })
       .catch(error => {
         console.log(error);
@@ -36,8 +37,8 @@ export default class Rankings extends Component {
     fetch("http://localhost:8000/api/rankings/individual")
       .then(response => response.json())
       .then(responseData => {
-        this.setState({ individualData: responseData });
-        console.log(this.state.individualData);
+        this.setState({ individualData: responseData.slice(0, 20) });
+        // console.log(this.state.individualData);
       })
       .catch(error => {
         console.log(error);
@@ -52,16 +53,29 @@ export default class Rankings extends Component {
     }
   }
   render() {
-    const renderRankCards = this.state.teamRankingData.map((item, index) => (
-      <TeamRankingList
-        key={index}
-        name={item.team.name}
-        points={item.points}
-        place={item.place}
-        change={item.change}
-        id={item.team.id}
-      />
-    ));
+    const renderTeamRankCards = this.state.teamRankingData.map(
+      (item, index) => (
+        <TeamRankingList
+          key={index}
+          name={item.team.name}
+          points={item.points}
+          place={item.place}
+          change={item.change}
+          id={item.team.id}
+        />
+      )
+    );
+
+    const renderIndividualRankCards = this.state.individualData.map(
+      (item, index) => (
+        <IndividualRankingList
+          key={index}
+          id={item.id}
+          ign={item.name}
+          rating={item.rating}
+        />
+      )
+    );
     return (
       <div>
         <Nav tabs>
@@ -89,15 +103,11 @@ export default class Rankings extends Component {
           </NavItem>
         </Nav>
         <TabContent activeTab={this.state.activeTab}>
-          <TabPane tabId="1">{renderRankCards}</TabPane>
-          <TabPane tabId="2" />
+          <TabPane tabId="1">{renderTeamRankCards}</TabPane>
+          <TabPane tabId="2"> {renderIndividualRankCards}</TabPane>
         </TabContent>
         <div className="container">
-          <img
-            className="bg"
-            src="https://www.csgowallpapers.com/assets/images/original/mossawi_758187316037_20181101210018_951026698301.jpg"
-            alt="logo"
-          />
+          <img className="bg" src={rankingBackground} alt="logo" />
         </div>
       </div>
     );

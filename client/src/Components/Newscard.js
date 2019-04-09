@@ -1,45 +1,49 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import CardMedia from "@material-ui/core/CardMedia";
+import {
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardTitle,
+} from "reactstrap";
+import "./Newscard.css";
+export default class Newscard extends Component {
+  render() {
+    return (
+      <div>
+        <Card className="news-card" color="light">
+          <CardImg
+            className="image"
+            right
+            width="10px"
+            src="https://www.hltv.org/img/static/openGraphHltvLogo.png"
+            alt="Card image cap"
+          />
+          <CardBody>
+            <CardTitle>
+              <h1>{this.props.title}</h1>
+            </CardTitle>
+            <CardText>
+              <h3>{this.props.description}</h3>
+            </CardText>
+            <CardText>
+              <small className="text-muted">
+                Posted on : {this.props.date}
+              </small>
+            </CardText>
+            <p>
+              <a href={this.props.link} target="_blank" rel="noopener noreferrer">
+                Read more
+              </a>{" "}
+            </p>
+          </CardBody>
+        </Card>
+      </div>
+    );
+  }
+}
 
-const styles = {
-  card: {
-    maxWidth: 400,
-    margin: 50,
-    color: "transparent"
-  },
-  media: {
-    height: 70,
-    width: 120
-  },
-  title: {
-    margin: 10,
-    color: "#051659",
-    fontSize: 30,
-    fontWeight: 50,
-    fontFamily: "Roboto"
-  },
-  body: {
-    fontSize: 18,
-    fontWeight: 20,
-    fontFamily: "Roboto"
-  },
-  date: {
-    fontSize: 14,
-    margin: 10
-  },
-  link: {}
-};
-
-function Newscard(props) {
-  const { classes } = props;
-  return (
-    <Card className={classes.card}>
+/*<Card className={classes.card}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
@@ -62,12 +66,4 @@ function Newscard(props) {
           </Typography>
         </CardContent>
       </CardActionArea>
-    </Card>
-  );
-}
-
-Newscard.propTypes = {
-  classes: PropTypes.object.isRequired
-};
-
-export default withStyles(styles)(Newscard);
+    </Card>*/

@@ -5,6 +5,7 @@ const matchesRoute = require("./match");
 const resultsRoute = require("./results");
 const rankingsRoute = require("./rankings");
 const teamsRoute = require("./teams");
+const playerRoute = require("./player");
 
 /* Same URL as in people.js */
 router.use("/news", newsRoute);
@@ -12,5 +13,6 @@ router.use("/match", matchesRoute);
 router.use("/results", resultsRoute);
 router.use("/rankings", rankingsRoute);
 router.use("/teams", teamsRoute);
+router.use("/player", playerRoute);
 
 module.exports = router;

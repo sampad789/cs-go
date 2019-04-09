@@ -4,11 +4,12 @@
 import React, { Component } from "react";
 import "./Home.css";
 import Typewriter from "typewriter-effect";
+import homeBackground from "../../img/home.jpg";
 class Home extends Component {
   render() {
     return (
       <div className="container">
-        <img className="bg" src="http://i.imgur.com/5vfpUaw.jpg" alt="Logo" />
+        <img className="bg" src={homeBackground} alt="Logo" />
         <div className="text-block">
           <p> CS&#0045;GO </p>
         </div>

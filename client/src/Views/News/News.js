@@ -1,53 +1,47 @@
-import React, { Component } from 'react';
-import './News.css';
-import Helmet from 'react-helmet';
-import Newscard from '../../Components/Newscard';
+import React, { Component } from "react";
+import "./News.css";
+import newsBackground from "../../img/news.jpg";
+import Newscard from "../../Components/Newscard";
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      newsData: [],
-    }
-  }
-  
-  componentDidMount=()=>{
-   this.fetchNews();
+      newsData: []
+    };
   }
 
-  fetchNews =()=>{
-    fetch('http://localhost:8000/api/news')
-    .then((response) => response.json())
-    .then((responseData) => {
-      this.setState({newsData:responseData})
-      console.log(this.state.newsData)
-    })
-    .catch( (error) => {
-      console.log(error);
-    });
-    
-    ;
-  }
+  componentDidMount = () => {
+    this.fetchNews();
+  };
 
+  fetchNews = () => {
+    fetch("http://localhost:8000/api/news")
+      .then(response => response.json())
+      .then(responseData => {
+        this.setState({ newsData: responseData });
+        console.log(this.state.newsData);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 
- 
   render() {
-    const renderNewsCards = this.state.newsData.map((item,index)=>
-      <Newscard key ={index}
-      date ={item.date}
-      description ={item.description}
-      link ={item.link}
-      title={item.title}
+    const renderNewsCards = this.state.newsData.map((item, index) => (
+      <Newscard
+        key={index}
+        date={item.date}
+        description={item.description}
+        link={item.link}
+        title={item.title}
       />
-    )
+    ));
     return (
-      <div className = "container">
-      <Helmet bodyAttributes={{style: 'background-color : #000'}}/>
-      <div className ="card-align">
-        {renderNewsCards}
-        </div>
+      <div className="container">
+        <img className="bg" src={newsBackground} alt="logo" />
+        <div className="card-align">{renderNewsCards}</div>
       </div>
-      
     );
   }
 }

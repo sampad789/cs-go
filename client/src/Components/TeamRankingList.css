@@ -1,7 +1,20 @@
 @import url("https://fonts.googleapis.com/css?family=Iceberg");
 
-.ranking-individual {
+.ranking-team {
   margin-top: 2rem;
   margin-bottom: 1rem;
   font-family: "Iceberg", cursive;
+}
+
+.image-float {
+  float: right;
+  margin-right: 2rem;
+}
+
+.team-details {
+  padding-left: 3rem;
+}
+
+.badges {
+  font-size: 20px;
 }

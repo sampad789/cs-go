@@ -1,1 +1,11 @@
-@import url("https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei");
+@import url("https://fonts.googleapis.com/css?family=Iceberg");
+
+.news-card {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-family: "Iceberg", cursive;
+}
+.image {
+  height: 20%;
+  width: 20%;
+}
