@@ -1,12 +1,5 @@
 import React, { Component } from "react";
-import {
-  UncontrolledCollapse,
-  Button,
-  CardBody,
-  Card,
-  Table,
-  Container
-} from "reactstrap";
+import { Collapse, Button, CardBody, Card, Table, Container } from "reactstrap";
 import "./MatchCard.css";
 
 export default class MatchCard extends Component {
@@ -31,13 +24,36 @@ export default class MatchCard extends Component {
         // console.log(this.state.team2Details);
       });
   };
+  toggle = () => {
+    this.setState(state => ({ collapse: !state.collapse }));
+  };
 
   render() {
     const renderTeam1Details = this.state.team1Details.map((item, index) => (
-      <li key={index}>
-        <ul>{item.playerName}</ul>
-        <ul>{item.adr}</ul>
-      </li>
+      <tr key={index}>
+        <td> {item.playerName} </td>
+        <td> {item.adr} </td>
+
+        <td>
+          {" "}
+          {item.kills}/{item.deaths}{" "}
+        </td>
+        <td> {item.rating} </td>
+        <td> {item.plusMinus} </td>
+      </tr>
+    ));
+    const renderTeam2Details = this.state.team2Details.map((item, index) => (
+      <tr key={index}>
+        <td> {item.playerName} </td>
+        <td> {item.adr} </td>
+
+        <td>
+          {" "}
+          {item.kills}/{item.deaths}{" "}
+        </td>
+        <td> {item.rating} </td>
+        <td> {item.plusMinus} </td>
+      </tr>
     ));
     return (
       <Container className="match-card">
@@ -71,28 +87,41 @@ export default class MatchCard extends Component {
           <CardBody>
             <Button
               id="toggler"
+              onClick={this.toggle}
               color="primary"
               style={{ marginBottom: "1rem" }}
             >
               Match Stats
             </Button>
-            <UncontrolledCollapse toggler="#toggler">
+            <Collapse isOpen={this.state.collapse}>
               <Table striped>
                 <thead>
+                  <h1>{this.props.team1Name}</h1>
                   <tr>
-                    <th>adr</th>
+                    <th>Name</th>
+                    <th>ADR</th>
+                    <th>Kills/Deaths</th>
+                    <th>Rating</th>
+                    <th>+/-</th>
                   </tr>
                 </thead>
-
-                <tbody>
-                  <tr>
-                    <td>
-                      <ul>{renderTeam1Details}</ul>
-                    </td>
-                  </tr>
-                </tbody>
+                {renderTeam1Details}
               </Table>
-            </UncontrolledCollapse>
+              <hr />
+              <Table striped>
+                <thead>
+                  <h1>{this.props.team2Name}</h1>
+                  <tr>
+                    <th>Name</th>
+                    <th>ADR</th>
+                    <th>Kills/Deaths</th>
+                    <th>Rating</th>
+                    <th>+/-</th>
+                  </tr>
+                </thead>
+                {renderTeam2Details}
+              </Table>
+            </Collapse>
           </CardBody>
         </Card>{" "}
       </Container>

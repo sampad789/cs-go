@@ -76,6 +76,7 @@ export default class Rankings extends Component {
         />
       )
     );
+
     return (
       <div>
         <Nav tabs>
