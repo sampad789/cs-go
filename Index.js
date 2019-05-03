@@ -34,8 +34,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-// Just for fast testing if something breaks down, and
-// wanna see at least that Node.js server is runnig
+//Test script
 app.get("/", function(req, res) {
   res.send("Hello World of Knex Phase 2 - POST too!");
 });
