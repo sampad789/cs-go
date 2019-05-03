@@ -14,7 +14,7 @@ export default class MatchCard extends Component {
     this.fetchMatchDetails();
   };
   fetchMatchDetails = () => {
-    fetch("http://localhost:8000/api/match/" + this.props.matchId + "")
+    fetch("/api/match/" + this.props.matchId + "")
       .then(response => response.json())
       .then(responseData => {
         this.setState({

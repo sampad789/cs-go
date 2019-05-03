@@ -22,7 +22,7 @@ export default class Rankings extends Component {
   };
 
   fetchTeamRankings = () => {
-    fetch("http://localhost:8000/api/rankings/team")
+    fetch("/api/rankings/team")
       .then(response => response.json())
       .then(responseData => {
         this.setState({ teamRankingData: responseData });
@@ -34,7 +34,7 @@ export default class Rankings extends Component {
   };
 
   fetchIndividualRankings = () => {
-    fetch("http://localhost:8000/api/rankings/individual")
+    fetch("/api/rankings/individual")
       .then(response => response.json())
       .then(responseData => {
         this.setState({ individualData: responseData.slice(0, 20) });

@@ -21,7 +21,7 @@ export default class TeamRankingList extends React.Component {
     this.fetchTeam();
   };
   fetchTeam = () => {
-    fetch("http://localhost:8000/api/teams/" + this.props.id + "")
+    fetch("/api/teams/" + this.props.id + "")
       .then(response => response.json())
       .then(responseData => {
         this.setState({ teams: responseData });

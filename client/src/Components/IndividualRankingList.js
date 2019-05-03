@@ -20,7 +20,7 @@ export default class IndividualRankingList extends Component {
     this.fetchPlayer();
   };
   fetchPlayer = () => {
-    fetch("http://localhost:8000/api/player/" + this.props.id + "")
+    fetch("/api/player/" + this.props.id + "")
       .then(response => response.json())
       .then(responseData => {
         this.setState({ player: responseData });

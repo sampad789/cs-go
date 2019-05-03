@@ -16,7 +16,7 @@ class App extends Component {
   };
 
   fetchNews = () => {
-    fetch("http://localhost:8000/api/news")
+    fetch("/api/news")
       .then(response => response.json())
       .then(responseData => {
         this.setState({ newsData: responseData });
