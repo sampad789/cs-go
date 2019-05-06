@@ -36,7 +36,7 @@ if (process.env.NODE_ENV === "production") {
 
 //Test script
 app.get("/", function(req, res) {
-  res.send("Hello World of Knex Phase 2 - POST too!");
+  res.send("Working fine !!!");
 });
 
 app.listen(8000);
