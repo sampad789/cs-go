@@ -24,7 +24,7 @@ const apiRoute = require("./routes/api"); // means index.js in there!!!
 
 app.use("/api", apiRoute);
 
-// Server static assests if in production
+// Server static assets if in production
 if (process.env.NODE_ENV === "production") {
   // Set static folder
   app.use(express.static("client/build"));
